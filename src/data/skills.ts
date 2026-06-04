@@ -3,6 +3,7 @@ import {
   SiPython,
   SiCplusplus,
   SiMysql,
+  SiGnubash,
   SiReact,
   SiTailwindcss,
   SiChartdotjs,
@@ -15,17 +16,21 @@ import {
   SiJsonwebtokens,
   SiMongodb,
   SiSwagger,
+  SiPandas,
+  SiNumpy,
   SiAmazonwebservices,
   SiVercel,
   SiRender,
   SiDocker,
   SiNginx,
+  SiGithubactions,
   SiLinux,
   SiGit,
   SiPostman,
+  SiPytest,
   SiCloudinary,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
+import { VscCode, VscTerminalPowershell } from "react-icons/vsc";
 import { IconType } from "react-icons";
 
 export interface Skill {
@@ -46,6 +51,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Python", icon: SiPython },
       { name: "C++", icon: SiCplusplus },
       { name: "SQL", icon: SiMysql },
+      { name: "Bash", icon: SiGnubash },
+      { name: "PowerShell", icon: VscTerminalPowershell },
     ],
   },
   {
@@ -70,20 +77,23 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Databases",
+    title: "Databases & Data",
     skills: [
       { name: "MongoDB", icon: SiMongodb },
       { name: "MySQL", icon: SiMysql },
+      { name: "Pandas", icon: SiPandas },
+      { name: "NumPy", icon: SiNumpy },
     ],
   },
   {
     title: "Cloud & DevOps",
     skills: [
       { name: "AWS (EC2)", icon: SiAmazonwebservices },
-      { name: "Vercel", icon: SiVercel },
-      { name: "Render", icon: SiRender },
       { name: "Docker", icon: SiDocker },
       { name: "Nginx", icon: SiNginx },
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Render", icon: SiRender },
       { name: "Linux", icon: SiLinux },
       { name: "Git", icon: SiGit },
     ],
@@ -92,6 +102,7 @@ export const skillCategories: SkillCategory[] = [
     title: "Tools",
     skills: [
       { name: "Postman", icon: SiPostman },
+      { name: "Pytest", icon: SiPytest },
       { name: "Cloudinary", icon: SiCloudinary },
       { name: "MongoDB Atlas", icon: SiMongodb },
       { name: "VS Code", icon: VscCode },

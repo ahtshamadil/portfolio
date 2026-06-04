@@ -36,7 +36,7 @@ export const personalInfo = {
   email: "ahtshamadil302@gmail.com",
   phone: "+92 310 6986191",
   location: "Lahore, Pakistan",
-  bio: "Full-Stack Developer with hands-on experience building and deploying production MERN stack applications. Proficient in API design, authentication systems, real-time communication, and modern React UI development.",
+  bio: "Software engineer with production MERN deployments on AWS and a CI-based autograding system serving 150+ students. Strong in React, Node.js, MongoDB, REST APIs, and GitHub Actions automation.",
   university: "University of Management and Technology",
   degree: "Bachelor of Science in Computer Science",
   graduationDate: "Expected July 2026",

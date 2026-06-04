@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiAward, FiCode, FiServer, FiBook } from "react-icons/fi";
+import { FiAward, FiCode, FiServer, FiBook, FiUsers } from "react-icons/fi";
 import { personalInfo } from "@/data/socials";
 
 const stats = [
   { icon: FiCode, label: "Production Apps", value: "2+" },
   { icon: FiServer, label: "Deployed on AWS", value: "AWS" },
-  { icon: FiAward, label: "Certified Dev", value: "Udemy" },
+  { icon: FiUsers, label: "Students Served", value: "150+" },
   { icon: FiBook, label: "CS @ UMT", value: "Graduating 2026" },
 ];
 
@@ -82,9 +82,14 @@ export default function About() {
               <p className="text-muted leading-relaxed">
                 I love taking ideas from concept to production — whether it&apos;s
                 architecting REST APIs, building real-time features with
-                Socket.io, or crafting smooth UIs with React and Framer Motion.
-                When I&apos;m not coding, I&apos;m exploring new technologies and
-                contributing to team projects.
+                Socket.io, or designing CI/CD pipelines on GitHub Actions.
+                Currently teaching the next generation of developers at UMT,
+                where I built an autograding system that delivers instant
+                feedback to{" "}
+                <span className="text-accent-light font-medium">
+                  150+ students
+                </span>
+                .
               </p>
             </motion.div>
 

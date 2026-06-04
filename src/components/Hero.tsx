@@ -82,9 +82,9 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Building production MERN apps with real-time features, clean APIs, and
-          modern UIs. Passionate about creating seamless digital experiences from
-          frontend to deployment.
+          Shipping production MERN apps on AWS with real-time features and clean
+          APIs. Currently building developer tooling — including a CI-based
+          autograder serving 150+ students.
         </motion.p>
 
         {/* CTA Buttons */}

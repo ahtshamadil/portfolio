@@ -19,16 +19,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ahtshamadil.dev"),
+  metadataBase: new URL("https://ahtshamadil.me"),
   title: "Ahtsham Adil | Full Stack Web Developer",
   description:
-    "Full-Stack Developer with hands-on experience building and deploying production MERN stack applications. Proficient in API design, authentication systems, real-time communication, and modern React UI development.",
+    "Software engineer with production MERN deployments on AWS and a CI-based autograding system serving 150+ students. Strong in React, Node.js, MongoDB, REST APIs, and GitHub Actions automation.",
   keywords: [
     "Ahtsham Adil",
     "Full Stack Developer",
+    "Software Engineer",
     "MERN Stack",
     "React",
     "Node.js",
+    "MongoDB",
+    "AWS",
+    "GitHub Actions",
+    "CI/CD",
     "Portfolio",
     "Web Developer",
   ],
@@ -36,17 +41,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ahtsham Adil | Full Stack Web Developer",
     description:
-      "Full-Stack Developer building production MERN stack applications with real-time features, clean APIs, and modern UIs.",
+      "Software engineer with production MERN deployments on AWS and a CI-based autograding system serving 150+ students.",
     type: "website",
     locale: "en_US",
-    url: "https://ahtshamadil.dev",
+    url: "https://ahtshamadil.me",
     siteName: "Ahtsham Adil Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Ahtsham Adil | Full Stack Web Developer",
     description:
-      "Full-Stack Developer building production MERN stack applications.",
+      "Software engineer with production MERN deployments on AWS and a CI-based autograder serving 150+ students.",
   },
 };
 
