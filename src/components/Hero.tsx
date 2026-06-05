@@ -53,12 +53,7 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 text-center px-4 max-w-4xl"
       >
-        {/* Greeting Badge */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block px-4 py-1.5 text-sm font-mono text-accent-light border border-accent/30 rounded-full bg-accent/5">
-            👋 Welcome to my portfolio
-          </span>
-        </motion.div>
+        
 
         {/* Name */}
         <motion.h1
