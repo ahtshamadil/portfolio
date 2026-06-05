@@ -86,12 +86,25 @@ export default async function Image() {
           {/* Title */}
           <div
             style={{
-              fontSize: 28,
+              fontSize: 26,
               color: "#9ca3af",
-              marginBottom: 32,
+              marginBottom: 12,
+              textAlign: "center",
             }}
           >
-            Full Stack Web Developer
+            Full-Stack Software Engineer (MERN)
+          </div>
+
+          {/* Tagline */}
+          <div
+            style={{
+              fontSize: 20,
+              color: "#7c3aed",
+              marginBottom: 32,
+              textAlign: "center",
+            }}
+          >
+            Production apps on AWS · CI-based autograder for 150+ students
           </div>
 
           {/* Tech pills */}
@@ -101,7 +114,7 @@ export default async function Image() {
               gap: 12,
             }}
           >
-            {["React", "Node.js", "MongoDB", "TypeScript", "AWS"].map(
+            {["React", "Node.js", "MongoDB", "AWS", "GitHub Actions"].map(
               (tech) => (
                 <div
                   key={tech}

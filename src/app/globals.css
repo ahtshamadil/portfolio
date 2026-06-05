@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-@theme inline {
+/* Tokens. NOTE: no `inline` keyword — utilities resolve to var(--color-...)
+   at runtime so theme switching via :root[data-theme="light"] works. */
+@theme {
   --color-background: #050508;
   --color-foreground: #e5e7eb;
   --color-surface: #111827;
@@ -12,6 +14,19 @@
   --color-border: #1e293b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Light theme — overrides via data-theme attribute set by next-themes */
+:root[data-theme="light"] {
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-surface: #f8fafc;
+  --color-surface-light: #f1f5f9;
+  --color-accent: #7c3aed;
+  --color-accent-light: #6d28d9;
+  --color-accent-cyan: #0891b2;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
 }
 
 html {
@@ -78,12 +93,12 @@ body {
   background-clip: text;
 }
 
-/* Glass effect */
+/* Glass effect — theme-aware via CSS variables */
 .glass {
-  background: rgba(17, 24, 39, 0.6);
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(124, 58, 237, 0.1);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 10%, transparent);
 }
 
 /* Animated gradient background */
@@ -114,6 +129,24 @@ body {
   background: linear-gradient(90deg, var(--color-accent), var(--color-accent-cyan));
   z-index: 9999;
   transition: width 0.1s linear;
+}
+
+/* Case-study page typography helpers */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-title::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
 }
 
 /* Respect reduced motion preference */

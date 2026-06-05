@@ -1,21 +1,24 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
+// Pre-compute star positions once at module load time, NOT inside a hook.
+// Calling Math.random() inside useMemo violates React's purity rule
+// (the compiler can re-execute memos to verify purity, and random results
+// would differ each run). Module-level init runs exactly once per page load.
+const STAR_POSITIONS = (() => {
+  const pos = new Float32Array(3000);
+  for (let i = 0; i < 3000; i++) {
+    pos[i] = (Math.random() - 0.5) * 10;
+  }
+  return pos;
+})();
+
 function StarField() {
   const ref = useRef<THREE.Points>(null);
-
-  // Memoize star positions to avoid recreating on every render
-  const positions = useMemo(() => {
-    const pos = new Float32Array(3000);
-    for (let i = 0; i < 3000; i++) {
-      pos[i] = (Math.random() - 0.5) * 10;
-    }
-    return pos;
-  }, []);
 
   useFrame((_, delta) => {
     if (ref.current) {
@@ -25,7 +28,7 @@ function StarField() {
   });
 
   return (
-    <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+    <Points ref={ref} positions={STAR_POSITIONS} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
         color="var(--color-accent)"

@@ -3,7 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { FiExternalLink, FiGithub, FiChevronDown } from "react-icons/fi";
+import Link from "next/link";
+import { FiExternalLink, FiGithub, FiChevronDown, FiBookOpen } from "react-icons/fi";
 import { projects } from "@/data/projects";
 
 interface ProjectSlideProps {
@@ -147,6 +148,14 @@ function ProjectSlide({ project, index, isLast }: ProjectSlideProps) {
                 <FiGithub className="w-4 h-4" />
                 GitHub
               </a>
+              <Link
+                href={`/projects/${project.id}`}
+                aria-label={`Read the ${project.title} case study`}
+                className="flex items-center gap-2 px-6 py-2.5 border border-accent/40 hover:border-accent text-accent-light text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/10"
+              >
+                <FiBookOpen className="w-4 h-4" />
+                Case Study
+              </Link>
             </div>
           </motion.div>
         </div>

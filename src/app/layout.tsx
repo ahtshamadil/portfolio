@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,7 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050508",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#050508" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -55,23 +62,81 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ahtsham Adil",
+  url: "https://ahtshamadil.me",
+  image: "https://ahtshamadil.me/opengraph-image",
+  sameAs: [
+    "https://github.com/ahtshamadil",
+    "https://www.linkedin.com/in/ahtsham-adil",
+  ],
+  jobTitle: "Full-Stack Software Engineer",
+  worksFor: {
+    "@type": "EducationalOrganization",
+    name: "University of Management and Technology",
+    url: "https://www.umt.edu.pk",
+  },
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "University of Management and Technology",
+  },
+  email: "mailto:ahtshamadil302@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "AWS",
+    "GitHub Actions",
+    "CI/CD",
+    "TypeScript",
+    "Docker",
+    "Python",
+    "Socket.io",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
-          Skip to content
-        </a>
-        {children}
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
+          >
+            Skip to content
+          </a>
+          <Navbar />
+          {children}
+          <Footer />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

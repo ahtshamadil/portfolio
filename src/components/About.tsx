@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FiAward, FiCode, FiServer, FiBook, FiUsers } from "react-icons/fi";
 import { personalInfo } from "@/data/socials";
+import CurrentlyBuilding from "./CurrentlyBuilding";
 
 const stats = [
   { icon: FiCode, label: "Production Apps", value: "2+" },
@@ -147,6 +148,9 @@ export default function About() {
             ))}
           </motion.div>
         </div>
+
+        {/* Currently building card — spans full width below the 2-col grid */}
+        <CurrentlyBuilding />
       </div>
     </section>
   );
